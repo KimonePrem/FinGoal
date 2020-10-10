@@ -6,18 +6,21 @@ import { GoalsListComponent } from './goals-list/goals-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BootstrapIconsModule } from 'ng-bootstrap-icons';
-import { Cash, Person } from 'ng-bootstrap-icons/icons';
+import { Cash, Person, Plus } from 'ng-bootstrap-icons/icons';
+import { GoalsOptionsComponent } from './goals-list/goals-options/goals-options.component';
 
 const icons = {
   Cash,
-  Person
+  Person,
+  Plus
 };
 
 @NgModule({
   declarations: [
     AppComponent,
     GoalsListComponent,
-    NavbarComponent
+    NavbarComponent,
+    GoalsOptionsComponent
   ],
   imports: [
     BrowserModule,
