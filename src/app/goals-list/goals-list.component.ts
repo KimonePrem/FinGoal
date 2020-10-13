@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {GoalsService} from '../goals.service';
+import {Goal} from './Goal';
 
 @Component({
   selector: 'app-goals-list',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./goals-list.component.css']
 })
 export class GoalsListComponent implements OnInit {
+  goalsList: Goal[];
 
-  constructor() { }
+  constructor(public goalsService: GoalsService) {
+    goalsService.getGoals().then((value) => {
+      this.goalsList = GoalsService.snapshotToArray(value);
+    });
+  }
 
   ngOnInit(): void {
   }
