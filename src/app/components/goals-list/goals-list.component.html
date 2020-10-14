@@ -1,5 +1,17 @@
 <div class="goals-list">
+
   <ul class="list-group">
-    <li *ngFor="let goal of goalsList" class="list-group-item">{{goal.name}}</li>
+
+    <li *ngFor="let goal of goalsList" class="list-group-item">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{goal.name}}</h5>
+        <small>Contribution: {{goal.contribution_percentage}}%</small>
+      </div>
+
+      <p class="mb-1" *ngIf="goal.due_date != null">Due: {{goal.due_date}}</p>
+      <small *ngIf="goal.goal_amount != null">R {{goal.goal_amount}}</small>
+    </li>
+
   </ul>
+
 </div>
