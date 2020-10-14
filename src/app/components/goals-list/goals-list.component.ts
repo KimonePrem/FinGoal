@@ -20,6 +20,7 @@ export class GoalsListComponent implements OnInit {
   private fetchGoalsList() {
     this.goalsService.getGoals().then((value) => {
       this.goalsList = GoalsService.snapshotToArray(value);
+      console.log(this.goalsList);
     });
   }
 }
