@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {GoalsService} from '../goals.service';
-import {Goal} from './Goal';
+import {GoalsService} from '../../goals.service';
+import {Goal} from '../../entity/Goal';
 
 @Component({
-  selector: 'app-goals-list',
-  templateUrl: './goals-list.component.html',
-  styleUrls: ['./goals-list.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class GoalsListComponent implements OnInit {
+export class HomeComponent implements OnInit {
   goalsList: Goal[];
 
   constructor(public goalsService: GoalsService) {

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
-import {Goal} from './goals-list/Goal';
+import {Goal} from './entity/Goal';
 
 
 @Injectable({
