@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Goal} from '../../entity/Goal';
 import {GoalsService} from '../../services/goals.service';
+import {UserDetailsService} from '../../services/user-details.service';
 
 @Component({
   selector: 'app-goals-list',
@@ -9,9 +10,15 @@ import {GoalsService} from '../../services/goals.service';
 })
 export class GoalsListComponent implements OnInit {
   goalsList: Goal[];
+  username: string;
+  totalSavings: number;
+  monthlyContribution: number;
+  contributionDate: number;
 
-  constructor(public goalsService: GoalsService) {
+  constructor(private goalsService: GoalsService,
+              private userDetailsService: UserDetailsService) {
     this.fetchGoalsList();
+    this.fetchUserDetails();
   }
 
   ngOnInit(): void {
@@ -20,7 +27,28 @@ export class GoalsListComponent implements OnInit {
   private fetchGoalsList() {
     this.goalsService.getGoals().then((value) => {
       this.goalsList = GoalsService.snapshotToArray(value);
-      console.log(this.goalsList);
+    });
+  }
+
+  private fetchUserDetails() {
+    this.userDetailsService.getUsername().then((value) => {
+      this.username = value.val();
+      console.log("Username: " + this.username);
+    });
+
+    this.userDetailsService.getTotalSavings().then((value) => {
+      this.totalSavings = Number.parseFloat(value.val());
+      console.log("Savings: " + this.totalSavings);
+    });
+
+    this.userDetailsService.getMonthlyContribution().then((value) => {
+      this.monthlyContribution = Number.parseFloat(value.val());
+      console.log("monthlyContribution: " + this.monthlyContribution);
+    });
+
+    this.userDetailsService.getContributionDate().then((value) => {
+      this.contributionDate = Number.parseFloat(value.val());
+      console.log("contributionDate: " + this.contributionDate);
     });
   }
 }
