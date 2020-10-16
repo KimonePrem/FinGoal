@@ -33,22 +33,18 @@ export class GoalsListComponent implements OnInit {
   private fetchUserDetails() {
     this.userDetailsService.getUsername().then((value) => {
       this.username = value.val();
-      console.log("Username: " + this.username);
     });
 
     this.userDetailsService.getTotalSavings().then((value) => {
       this.totalSavings = Number.parseFloat(value.val());
-      console.log("Savings: " + this.totalSavings);
     });
 
     this.userDetailsService.getMonthlyContribution().then((value) => {
       this.monthlyContribution = Number.parseFloat(value.val());
-      console.log("monthlyContribution: " + this.monthlyContribution);
     });
 
     this.userDetailsService.getContributionDate().then((value) => {
       this.contributionDate = Number.parseFloat(value.val());
-      console.log("contributionDate: " + this.contributionDate);
     });
   }
 }
