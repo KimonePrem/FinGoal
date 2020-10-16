@@ -22,14 +22,14 @@ export class GoalsService {
     snapshot.forEach(function(childSnapshot) {
       let goal: Goal = new Goal();
       goal.name = childSnapshot.key;
-      goal.contribution_percentage = childSnapshot.child('contribution_percentage').val();
+      goal.contribution_percentage = Number.parseFloat(childSnapshot.child('contribution_percentage').val());
 
       if (childSnapshot.child('due_date').exists()) {
         goal.due_date = childSnapshot.child('due_date').val();
       }
 
       if (childSnapshot.child('goal_amount').exists()) {
-        goal.goal_amount = childSnapshot.child('goal_amount').val();
+        goal.goal_amount = Number.parseFloat(childSnapshot.child('goal_amount').val());
       }
 
       goalsList.push(goal);

@@ -47,4 +47,17 @@ export class GoalsListComponent implements OnInit {
       this.contributionDate = Number.parseFloat(value.val());
     });
   }
+
+  calculateGoalProgress(goalAmount: number, contribution: number): number {
+    let progressAmount = 0;
+
+    if (contribution == 0) {
+      return 0;
+    } else {
+      const totalSavedForGoal = (contribution / 100) * this.totalSavings;
+      progressAmount = (totalSavedForGoal / goalAmount) * 100;
+      return progressAmount;
+    }
+
+  }
 }
