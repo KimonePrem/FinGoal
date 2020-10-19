@@ -48,16 +48,15 @@ export class GoalsListComponent implements OnInit {
     });
   }
 
-  calculateGoalProgress(goalAmount: number, contribution: number): number {
+  calculateGoalProgress(goalAmount: number, contribution: number, totalSavings: number): number {
     let progressAmount = 0;
 
     if (contribution == 0) {
       return 0;
     } else {
-      const totalSavedForGoal = (contribution / 100) * this.totalSavings;
+      const totalSavedForGoal = (contribution / 100) * totalSavings;
       progressAmount = (totalSavedForGoal / goalAmount) * 100;
       return progressAmount;
     }
-
   }
 }

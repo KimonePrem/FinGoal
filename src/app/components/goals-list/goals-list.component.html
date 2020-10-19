@@ -11,7 +11,7 @@
       <p class="mb-1" *ngIf="goal.due_date != null">Due: {{goal.due_date}}</p>
       <small *ngIf="goal.goal_amount != null">R {{goal.goal_amount}}</small>
 
-      <p><ngb-progressbar *ngIf="goal.goal_amount" type="info" [value]="calculateGoalProgress(goal.goal_amount, goal.contribution_percentage)"></ngb-progressbar></p>
+      <p><ngb-progressbar *ngIf="goal.goal_amount" type="info" [value]="this.calculateGoalProgress(goal.goal_amount, goal.contribution_percentage, totalSavings)"></ngb-progressbar></p>
 
     </li>
 
