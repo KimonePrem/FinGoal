@@ -38,8 +38,6 @@ describe('GoalsListComponent', () => {
     expect(progressPercentage).toEqual(0);
   });
 
-  // ToDo: Display amount saved for savings with and without goal amounts
-  // ToDo: Show goal amount at the end of the progress bar
   // ToDo: show time left until due date for goal
   // ToDo: write tests for components
 
