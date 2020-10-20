@@ -54,9 +54,13 @@ export class GoalsListComponent implements OnInit {
     if (contribution == 0) {
       return 0;
     } else {
-      const totalSavedForGoal = (contribution / 100) * totalSavings;
+      const totalSavedForGoal = this.calculateAmountSaved(contribution, totalSavings);
       progressAmount = (totalSavedForGoal / goalAmount) * 100;
       return progressAmount;
     }
+  }
+
+  private calculateAmountSaved(contribution: number, totalSavings: number): number {
+    return contribution == 0 ? 0 : (contribution / 100) * totalSavings;
   }
 }
