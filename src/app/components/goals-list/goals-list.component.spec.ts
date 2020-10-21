@@ -37,6 +37,4 @@ describe('GoalsListComponent', () => {
     let progressPercentage = component.calculateGoalProgress(10000, 0, 0);
     expect(progressPercentage).toEqual(0);
   });
-
-  // ToDo: display today's date
 });
