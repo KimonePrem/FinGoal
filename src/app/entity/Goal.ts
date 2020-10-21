@@ -8,7 +8,17 @@ export class Goal {
   }
 
   getGoalDateString() {
-    return this.goalDate.getDate() + '-' + this.goalDate.getMonth() + '-' + this.goalDate.getFullYear();
+    let date = this.goalDate.getDate().toString();
+    if(date.length == 1){
+      date = "0" + date;
+    }
+
+    let month = this.goalDate.getMonth().toString();
+    if(month.length == 1){
+      month = "0" + month;
+    }
+
+    return date + '-' + month + '-' + this.goalDate.getFullYear();
   }
 
   setGoalDate(dateString: string){

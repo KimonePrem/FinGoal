@@ -38,7 +38,5 @@ describe('GoalsListComponent', () => {
     expect(progressPercentage).toEqual(0);
   });
 
-  // ToDo: show time left until due date for goal
-  // ToDo: write tests for components
-
+  // ToDo: display today's date
 });
