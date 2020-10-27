@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 
 @Injectable({
@@ -6,25 +6,24 @@ import {AngularFireDatabase} from '@angular/fire/database';
 })
 export class UserDetailsService {
 
-  constructor(private firebase: AngularFireDatabase) { }
-
-  getContributionDate(){
-    return this.firebase.database.ref('/contribution-date').once('value', function(snapshot) {
-    });
+  constructor(private firebase: AngularFireDatabase) {
   }
 
-  getMonthlyContribution(){
-    return this.firebase.database.ref('/monthly-contribution').once('value', function(snapshot) {
-    });
-  }
-
-  getTotalSavings(){
+  getTotalSavings() {
     return this.firebase.database.ref('/total-savings').once('value', function(snapshot) {
     });
   }
 
-  getUsername(){
+  getUsername() {
     return this.firebase.database.ref('/username').once('value', function(snapshot) {
     });
+  }
+
+  setUsername(newUsername: string) {
+    return this.firebase.database.ref('/username').set(newUsername);
+  }
+
+  setTotalSavings(newSavings: number) {
+    return this.firebase.database.ref('/total-savings').set(newSavings);
   }
 }

@@ -22,19 +22,22 @@ export class GoalsService {
     snapshot.forEach(function(childSnapshot) {
       let goal: Goal = new Goal();
       goal.name = childSnapshot.key;
-      goal.contributionPercentage = Number.parseFloat(childSnapshot.child('contribution_percentage').val());
+      goal.contributionPercentage = Number.parseFloat(childSnapshot.child('contribution-percentage').val());
 
-      if (childSnapshot.child('due_date').exists()) {
-        const goalDateString = childSnapshot.child('due_date').val();
+      if (childSnapshot.child('due-date').exists()) {
+        const goalDateString = childSnapshot.child('due-date').val();
         goal.setGoalDate(goalDateString);
       }
 
-      if (childSnapshot.child('goal_amount').exists()) {
-        goal.goalAmount = Number.parseFloat(childSnapshot.child('goal_amount').val());
+      if (childSnapshot.child('goal-amount').exists()) {
+        goal.goalAmount = Number.parseFloat(childSnapshot.child('goal-amount').val());
       }
 
       goalsList.push(goal);
     });
+
+    // ToDo: create separate file to store raw string for db
+    // ToDo: create screen for no entries found
 
     return goalsList;
   }

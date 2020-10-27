@@ -11,7 +11,6 @@ import {UserDetailsService} from '../../services/user-details.service';
 export class GoalsListComponent implements OnInit {
   goalsList: Goal[];
   totalSavings: number;
-  contributionDate: number;
 
   constructor(private goalsService: GoalsService,
               private userDetailsService: UserDetailsService) {
@@ -31,10 +30,6 @@ export class GoalsListComponent implements OnInit {
   private fetchUserDetails() {
     this.userDetailsService.getTotalSavings().then((value) => {
       this.totalSavings = Number.parseFloat(value.val());
-    });
-
-    this.userDetailsService.getContributionDate().then((value) => {
-      this.contributionDate = Number.parseFloat(value.val());
     });
   }
 
