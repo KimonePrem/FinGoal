@@ -37,4 +37,7 @@ export class UserDetailsModalComponent implements OnInit {
     this.totalSavings = Number.parseFloat(savings);
     this.userDetailsService.setTotalSavings(this.totalSavings);
   }
+
+  // ToDo: refresh page when submit clicked
+  // ToDo: show confirmation when submit clicked
 }
