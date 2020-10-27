@@ -9,11 +9,27 @@
     </button>
   </div>
 
-  <div class="modal-body" style="padding:50px">
-  </div>
+  <form>
+    <div class="modal-body" style="padding:50px">
+      <div class="form-group">
+        <label for="usernameInput">Username</label>
+        <input type="text" class="form-control" id="usernameInput" [value]="username" required>
+      </div>
 
-  <div class="modal-footer">
-    <button type="button" (click)="activeModal.close('Close click')">Close
-    </button>
-  </div>
+      <label for="savingsInput">Total Savings</label>
+      <div class="input-group flex-nowrap">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">R</span>
+        </div>
+        <input type="number" step="1" pattern="\d+" class="form-control" id="savingsInput" [value]="totalSavings" required>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" (click)="submitUserDetailsEdit()">Submit</button>
+      <button type="button" class="btn btn-light" (click)="activeModal.close('Close click')">Close
+      </button>
+    </div>
+
+  </form>
 </div>

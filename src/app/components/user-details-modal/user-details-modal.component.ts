@@ -10,8 +10,7 @@ import {UserDetailsService} from '../../services/user-details.service';
 export class UserDetailsModalComponent implements OnInit {
 
   username: string;
-  totalSaving: number;
-  contributionDate: number;
+  totalSavings: number;
 
   constructor(public activeModal: NgbActiveModal,
               private userDetailsService: UserDetailsService) {
@@ -27,11 +26,12 @@ export class UserDetailsModalComponent implements OnInit {
     });
 
     this.userDetailsService.getTotalSavings().then((value) => {
-      this.totalSaving = Number.parseFloat(value.val());
+      this.totalSavings = Number.parseFloat(value.val());
     });
+  }
 
-    this.userDetailsService.getContributionDate().then((value) => {
-      this.contributionDate = Number.parseFloat(value.val());
-    });
+  submitUserDetailsEdit() {
+    console.log(this.username);
+    console.log(this.totalSavings);
   }
 }
