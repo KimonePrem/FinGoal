@@ -30,8 +30,10 @@ export class UserDetailsModalComponent implements OnInit {
     });
   }
 
-  submitUserDetailsEdit() {
+  submitUserDetailsEdit(username: string, savings: string) {
+    this.username = username;
+    this.totalSavings = Number.parseFloat(savings);
     console.log(this.username);
-    console.log(this.totalSavings);
+    console.log(this.totalSavings)
   }
 }
