@@ -12,7 +12,7 @@ export class GoalsService {
   }
 
   getGoals() {
-    return this.firebase.database.ref('/goals').once('value', function(snapshot) {
+    return this.firebase.database.ref('/goals').once('value', function() {
     });
   }
 
@@ -35,9 +35,6 @@ export class GoalsService {
 
       goalsList.push(goal);
     });
-
-    // ToDo: create separate file to store raw string for db
-    // ToDo: create screen for no entries found
 
     return goalsList;
   }

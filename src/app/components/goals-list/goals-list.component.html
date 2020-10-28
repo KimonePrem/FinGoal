@@ -1,7 +1,10 @@
 <div class="goals-list">
 
-  <ul class="list-group">
+  <div *ngIf="goalsList == null || goalsList.length == 0" class="list-group-item" style="padding-top: 20px">
+    <h5 class="mb-1" style="color:gray">No Goals Yet. Click "Add Goal" to Start!</h5>
+  </div>
 
+  <ul class="list-group">
     <li *ngFor="let goal of goalsList" class="list-group-item">
 
       <div class="d-flex w-100 justify-content-between">
@@ -13,11 +16,10 @@
 
       <div class="d-flex w-100 justify-content-between">
 
-        <small *ngIf="goal.goalAmount != null">R {{calculateAmountSaved(goal.contributionPercentage, totalSavings)}}</small>
+        <small
+          *ngIf="goal.goalAmount != null">R {{calculateAmountSaved(goal.contributionPercentage, totalSavings)}}</small>
         <p *ngIf="goal.goalAmount == null">R {{calculateAmountSaved(goal.contributionPercentage, totalSavings)}}</p>
-
         <small *ngIf="goal.goalAmount != null">R {{goal.goalAmount}}</small>
-
       </div>
 
       <p>
@@ -26,7 +28,6 @@
       </p>
 
     </li>
-
   </ul>
 
 </div>

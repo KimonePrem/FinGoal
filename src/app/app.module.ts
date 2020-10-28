@@ -14,6 +14,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {GoalsListComponent} from './components/goals-list/goals-list.component';
 import {UserDetailsModalComponent} from './components/user-details-modal/user-details-modal.component';
+import {CommonModule} from '@angular/common';
 
 const icons = {
   Cash,
@@ -31,6 +32,7 @@ const icons = {
     UserDetailsModalComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     NgbModule,
     BootstrapIconsModule.pick(icons),
