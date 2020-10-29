@@ -16,7 +16,12 @@ export class UserDetailsService {
   }
 
   setTotalSavings(newSavings: number) {
-    return this.firebase.database.ref(ServiceData.firebaseTags.totalSavings).set(newSavings);
+    try {
+      this.firebase.database.ref(ServiceData.firebaseTags.totalSavings).set(newSavings);
+      return true;
+    } catch (exception) {
+      return false;
+    }
   }
 
   getUsername() {
@@ -25,7 +30,12 @@ export class UserDetailsService {
   }
 
   setUsername(newUsername: string) {
-    return this.firebase.database.ref(ServiceData.firebaseTags.username).set(newUsername);
+    try {
+      this.firebase.database.ref(ServiceData.firebaseTags.username).set(newUsername);
+      return true;
+    } catch (exception) {
+      return false;
+    }
   }
 
 }

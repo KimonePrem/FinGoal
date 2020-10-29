@@ -32,12 +32,9 @@ export class UserDetailsModalComponent implements OnInit {
 
   submitUserDetailsEdit(username: string, savings: string) {
     this.username = username;
-    this.userDetailsService.setUsername(this.username);
-
     this.totalSavings = Number.parseFloat(savings);
+
+    this.userDetailsService.setUsername(this.username);
     this.userDetailsService.setTotalSavings(this.totalSavings);
   }
-
-  // ToDo: refresh page when submit clicked
-  // ToDo: show confirmation when submit clicked
 }
