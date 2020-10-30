@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {AddGoalModalComponent} from '../add-goal-modal/add-goal-modal.component';
 
 @Component({
   selector: 'app-goals-options',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoalsOptionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) {
+  }
 
   ngOnInit(): void {
   }
 
+  openAddGoalModal() {
+    this.modalService.open(AddGoalModalComponent, {size: 'lg', scrollable: true});
+  }
 }

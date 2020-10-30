@@ -1,0 +1,54 @@
+<div class="vendorDetailsModal">
+
+  <div class="modal-header">
+    <h5 class="modal-title">
+      New Goal
+    </h5>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <form>
+    <div class="modal-body" style="padding:50px">
+      <div class="d-flex w-100 justify-content-between">
+        <div class="form-group" style="padding-right: 10px;">
+          <input #goalNameInput type="text" class="form-control" id="goalNameInput"
+                 placeholder="Goal Name" required>
+        </div>
+
+        <div class="input-group flex-nowrap" style="padding-left: 10px;">
+          <input #contributionInput type="number" class="form-control" id="contributionInput" placeholder="Contribution"
+                 required>
+          <div class="input-group-append">
+            <span class="input-group-text" id="addon-wrapping1">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex w-100 justify-content-between">
+        <div class="form-group" style="padding-right: 10px;">
+          <input #dueDateInput type="date" class="form-control" id="dueDateInput"
+                 placeholder="Due Date" required>
+        </div>
+
+        <div class="input-group flex-nowrap" style="padding-left: 10px;">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping2">R</span>
+          </div>
+          <input #goalAmountInput type="number" class="form-control" id="goalAmountInput"
+                 placeholder="Goal Amount">
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary"
+              (click)="submitNewGoal()">Submit
+      </button>
+      <button type="button" class="btn btn-light" (click)="activeModal.close('Close click')">Close
+      </button>
+    </div>
+
+  </form>
+</div>

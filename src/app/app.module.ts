@@ -15,6 +15,7 @@ import {environment} from '../environments/environment';
 import {GoalsListComponent} from './components/goals-list/goals-list.component';
 import {UserDetailsModalComponent} from './components/user-details-modal/user-details-modal.component';
 import {CommonModule} from '@angular/common';
+import { AddGoalModalComponent } from './components/add-goal-modal/add-goal-modal.component';
 
 const icons = {
   Cash,
@@ -29,7 +30,8 @@ const icons = {
     NavbarComponent,
     GoalsOptionsComponent,
     GoalsListComponent,
-    UserDetailsModalComponent
+    UserDetailsModalComponent,
+    AddGoalModalComponent
   ],
   imports: [
     CommonModule,
