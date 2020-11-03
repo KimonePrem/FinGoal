@@ -16,6 +16,17 @@ export class GoalsService {
     });
   }
 
+  addGoal(goalName: string, contribution: string, dueDate?: string, goalAmount?: string){
+    try {
+      const newGoal = {};
+      // ToDo: complete this code - add entry with custom id
+      this.firebase.database.ref('/goals').set(newGoal);
+      return true;
+    } catch (exception) {
+      return false;
+    }
+  }
+
   static snapshotToArray(snapshot: firebase.database.DataSnapshot): Goal[] {
     let goalsList: Goal[] = new Array<Goal>();
 
@@ -26,7 +37,7 @@ export class GoalsService {
 
       if (childSnapshot.child(ServiceData.firebaseTags.dueDate).exists()) {
         const goalDateString = childSnapshot.child(ServiceData.firebaseTags.dueDate).val();
-        goal.setGoalDate(goalDateString);
+        goal.goalDate = Goal.convertFirebaseStringDateToDateType(goalDateString);
       }
 
       if (childSnapshot.child(ServiceData.firebaseTags.goalAmount).exists()) {

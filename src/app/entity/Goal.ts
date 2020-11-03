@@ -9,25 +9,34 @@ export class Goal {
 
   getGoalDateString() {
     let date = this.goalDate.getDate().toString();
-    if(date.length == 1){
-      date = "0" + date;
+    if (date.length == 1) {
+      date = '0' + date;
     }
 
     let month = this.goalDate.getMonth().toString();
-    if(month.length == 1){
-      month = "0" + month;
+    if (month.length == 1) {
+      month = '0' + month;
     }
 
     return date + '-' + month + '-' + this.goalDate.getFullYear();
   }
 
-  setGoalDate(dateString: string){
-    const dateSplitArray = dateString.split("-");
+  // ToDo: write tests for due date conversion in Goal class
 
-    this.goalDate = new Date();
-    this.goalDate.setDate(Number.parseFloat(dateSplitArray[0]));
-    this.goalDate.setMonth(Number.parseFloat(dateSplitArray[1]));
-    this.goalDate.setFullYear(Number.parseFloat(dateSplitArray[2]));
+  static convertFirebaseStringDateToDateType(dateFirebase: string): Date {
+    const dateSplitArray = dateFirebase.split('-');
+
+    let date = new Date();
+    date.setDate(Number.parseFloat(dateSplitArray[0]));
+    date.setMonth(Number.parseFloat(dateSplitArray[1]));
+    date.setFullYear(Number.parseFloat(dateSplitArray[2]));
+
+    return date;
+  }
+
+  static convertDateInputStringToFirebaseDateString(dateInput: string): string {
+    const dateSplitArray = dateInput.split('-');
+    return dateSplitArray[2] + '-' + dateSplitArray [1] + '-' + dateSplitArray[0];
   }
 
 }
