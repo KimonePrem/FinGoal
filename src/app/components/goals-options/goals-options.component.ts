@@ -16,6 +16,6 @@ export class GoalsOptionsComponent implements OnInit {
   }
 
   openAddGoalModal() {
-    this.modalService.open(AddGoalModalComponent, {size: 'lg', scrollable: true});
+    this.modalService.open(AddGoalModalComponent, {scrollable: true});
   }
 }
