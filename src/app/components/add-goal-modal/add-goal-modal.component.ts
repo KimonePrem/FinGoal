@@ -21,11 +21,9 @@ export class AddGoalModalComponent implements OnInit {
     if (dueDate != null || dueDate != '') {
       dueDate = Goal.convertDateInputStringToFirebaseDateString(dueDate);
     }
-
+// ToDo: cater for no date or goal amount being received
     // ToDo: change format of date input to dd-mm-yyyy - placeholder is not working
-
-    console.log(dueDate);
-    // this.goalsService.addGoal(goalName, contribution, dueDate, goalAmount);
+    this.goalsService.addGoal(goalName, contribution, dueDate, goalAmount);
 
   }
 

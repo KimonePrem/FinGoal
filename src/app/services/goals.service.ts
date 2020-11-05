@@ -18,11 +18,15 @@ export class GoalsService {
 
   addGoal(goalName: string, contribution: string, dueDate?: string, goalAmount?: string){
     try {
-      const newGoal = {};
-      // ToDo: complete this code - add entry with custom id
-      this.firebase.database.ref('/goals').set(newGoal);
+      let newGoal = {};
+      newGoal[ServiceData.firebaseTags.contributionPercentage] = contribution;
+      newGoal[ServiceData.firebaseTags.dueDate] = dueDate;
+      newGoal[ServiceData.firebaseTags.goalAmount] = goalAmount;
+
+      this.firebase.database.ref('/goals/' + goalName).set(newGoal);
       return true;
     } catch (exception) {
+      console.log("failed: " + exception);
       return false;
     }
   }

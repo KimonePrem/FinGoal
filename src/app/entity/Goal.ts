@@ -24,19 +24,28 @@ export class Goal {
   // ToDo: write tests for due date conversion in Goal class
 
   static convertFirebaseStringDateToDateType(dateFirebase: string): Date {
-    const dateSplitArray = dateFirebase.split('-');
+    if (dateFirebase != null) {
+      const dateSplitArray = dateFirebase.split('-');
 
-    let date = new Date();
-    date.setDate(Number.parseFloat(dateSplitArray[0]));
-    date.setMonth(Number.parseFloat(dateSplitArray[1]));
-    date.setFullYear(Number.parseFloat(dateSplitArray[2]));
+      let date = new Date();
+      date.setDate(Number.parseFloat(dateSplitArray[0]));
+      date.setMonth(Number.parseFloat(dateSplitArray[1]));
+      date.setFullYear(Number.parseFloat(dateSplitArray[2]));
 
-    return date;
+      return date;
+
+    } else {
+      return null;
+    }
   }
 
   static convertDateInputStringToFirebaseDateString(dateInput: string): string {
-    const dateSplitArray = dateInput.split('-');
-    return dateSplitArray[2] + '-' + dateSplitArray [1] + '-' + dateSplitArray[0];
+    if (dateInput != null) {
+      const dateSplitArray = dateInput.split('-');
+      return dateSplitArray[2] + '-' + dateSplitArray [1] + '-' + dateSplitArray[0];
+    } else {
+      return null;
+    }
   }
 
 }
