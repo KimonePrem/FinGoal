@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './screens/home/home.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {BootstrapIconsModule} from 'ng-bootstrap-icons';
 import {Cash, Person, Plus} from 'ng-bootstrap-icons/icons';
@@ -15,7 +15,7 @@ import {environment} from '../environments/environment';
 import {GoalsListComponent} from './components/goals-list/goals-list.component';
 import {UserDetailsModalComponent} from './components/user-details-modal/user-details-modal.component';
 import {CommonModule} from '@angular/common';
-import { AddGoalModalComponent } from './components/add-goal-modal/add-goal-modal.component';
+import {AddGoalModalComponent} from './components/add-goal-modal/add-goal-modal.component';
 
 const icons = {
   Cash,
@@ -42,7 +42,7 @@ const icons = {
     AngularFirestoreModule,
   ],
   exports: [BootstrapIconsModule],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent]
 })
 

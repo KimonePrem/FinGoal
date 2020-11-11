@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GoalsOptionsComponent } from './goals-options.component';
+import {GoalsOptionsComponent} from './goals-options.component';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../../../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 describe('GoalsOptionsComponent', () => {
   let component: GoalsOptionsComponent;
@@ -8,9 +11,11 @@ describe('GoalsOptionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GoalsOptionsComponent ]
+      declarations: [GoalsOptionsComponent],
+      imports: [AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

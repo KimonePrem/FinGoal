@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import {HomeComponent} from './home.component';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../../../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 describe('GoalsListComponent', () => {
   let component: HomeComponent;
@@ -8,9 +11,11 @@ describe('GoalsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [HomeComponent],
+      imports: [AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,6 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddGoalModalComponent } from './add-goal-modal.component';
+import {AddGoalModalComponent} from './add-goal-modal.component';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../../../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 describe('AddGoalModalComponent', () => {
   let component: AddGoalModalComponent;
@@ -8,9 +12,12 @@ describe('AddGoalModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddGoalModalComponent ]
+      declarations: [AddGoalModalComponent],
+      imports: [AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule],
+      providers: [NgbActiveModal]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
