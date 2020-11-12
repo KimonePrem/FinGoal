@@ -21,7 +21,15 @@ export class Goal {
     return date + '-' + month + '-' + this.goalDate.getFullYear();
   }
 
-  // ToDo: write tests for due date conversion in Goal class
+  isGoalDueDatePresent(): boolean {
+    return this.goalDate.getDate() > 0;
+  }
+
+  isGoalAmountPresent() {
+    return this.goalAmount > 0;
+  }
+
+  // ToDo: write tests all methods in class
 
   static convertFirebaseStringDateToDateType(dateFirebase: string): Date {
     if (dateFirebase != null) {

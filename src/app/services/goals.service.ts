@@ -16,7 +16,7 @@ export class GoalsService {
     });
   }
 
-  addGoal(goalName: string, contribution: string, dueDate?: string, goalAmount?: string){
+  addGoal(goalName: string, contribution: string, dueDate?: string, goalAmount?: string) {
     try {
       let newGoal = {};
       newGoal[ServiceData.firebaseTags.contributionPercentage] = contribution;
@@ -26,7 +26,7 @@ export class GoalsService {
       this.firebase.database.ref('/goals/' + goalName).set(newGoal);
       return true;
     } catch (exception) {
-      console.log("failed: " + exception);
+      console.log('failed: ' + exception);
       return false;
     }
   }
@@ -42,10 +42,14 @@ export class GoalsService {
       if (childSnapshot.child(ServiceData.firebaseTags.dueDate).exists()) {
         const goalDateString = childSnapshot.child(ServiceData.firebaseTags.dueDate).val();
         goal.goalDate = Goal.convertFirebaseStringDateToDateType(goalDateString);
+      } else {
+        goal.goalDate = null;
       }
 
       if (childSnapshot.child(ServiceData.firebaseTags.goalAmount).exists()) {
         goal.goalAmount = Number.parseFloat(childSnapshot.child(ServiceData.firebaseTags.goalAmount).val());
+      } else {
+        goal.goalAmount = null;
       }
 
       goalsList.push(goal);

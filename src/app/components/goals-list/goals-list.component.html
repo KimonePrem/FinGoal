@@ -12,18 +12,18 @@
         <small>Contribution: {{goal.contributionPercentage}}%</small>
       </div>
 
-      <p class="mb-1" *ngIf="goal.goalDate != null">Due: {{goal.getGoalDateString()}}</p>
+      <p class="mb-1" *ngIf="goal.isGoalDueDatePresent()">Due: {{goal.getGoalDateString()}}</p>
 
       <div class="d-flex w-100 justify-content-between">
 
         <small
-          *ngIf="goal.goalAmount != null">R {{calculateAmountSaved(goal.contributionPercentage, totalSavings)}}</small>
-        <p *ngIf="goal.goalAmount == null">R {{calculateAmountSaved(goal.contributionPercentage, totalSavings)}}</p>
-        <small *ngIf="goal.goalAmount != null">R {{goal.goalAmount}}</small>
+          *ngIf="goal.isGoalAmountPresent()">R {{calculateAmountSaved(goal.contributionPercentage, totalSavings)}}</small>
+        <p *ngIf="!goal.isGoalAmountPresent()">R {{calculateAmountSaved(goal.contributionPercentage, totalSavings)}}</p>
+        <small *ngIf="goal.isGoalAmountPresent()">R {{goal.goalAmount}}</small>
       </div>
 
-      <p>
-        <ngb-progressbar *ngIf="goal.goalAmount" type="info"
+      <p *ngIf="goal.isGoalAmountPresent()">
+        <ngb-progressbar type="info"
                          [value]="this.calculateGoalProgress(goal.goalAmount, goal.contributionPercentage, totalSavings)"></ngb-progressbar>
       </p>
 
