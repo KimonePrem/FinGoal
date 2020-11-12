@@ -7,6 +7,22 @@ export class Goal {
   constructor() {
   }
 
+  isGoalDueDatePresent(): boolean {
+    try {
+      return this.goalDate.getDate() > 0;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  isGoalAmountPresent() {
+    try {
+      return this.goalAmount > 0;
+    } catch (e) {
+      return false;
+    }
+  }
+
   getGoalDateString() {
     let date = this.goalDate.getDate().toString();
     if (date.length == 1) {
@@ -21,39 +37,20 @@ export class Goal {
     return date + '-' + month + '-' + this.goalDate.getFullYear();
   }
 
-  isGoalDueDatePresent(): boolean {
-    return this.goalDate.getDate() > 0;
-  }
-
-  isGoalAmountPresent() {
-    return this.goalAmount > 0;
-  }
-
-  // ToDo: write tests all methods in class
-
   static convertFirebaseStringDateToDateType(dateFirebase: string): Date {
-    if (dateFirebase != null) {
-      const dateSplitArray = dateFirebase.split('-');
+    const dateSplitArray = dateFirebase.split('-');
 
-      let date = new Date();
-      date.setDate(Number.parseFloat(dateSplitArray[0]));
-      date.setMonth(Number.parseFloat(dateSplitArray[1]));
-      date.setFullYear(Number.parseFloat(dateSplitArray[2]));
+    let date = new Date();
+    date.setDate(Number.parseFloat(dateSplitArray[0]));
+    date.setMonth(Number.parseFloat(dateSplitArray[1]));
+    date.setFullYear(Number.parseFloat(dateSplitArray[2]));
 
-      return date;
-
-    } else {
-      return null;
-    }
+    return date;
   }
 
   static convertDateInputStringToFirebaseDateString(dateInput: string): string {
-    if (dateInput != null) {
-      const dateSplitArray = dateInput.split('-');
-      return dateSplitArray[2] + '-' + dateSplitArray [1] + '-' + dateSplitArray[0];
-    } else {
-      return null;
-    }
+    const dateSplitArray = dateInput.split('-');
+    return dateSplitArray[2] + '-' + dateSplitArray [1] + '-' + dateSplitArray[0];
   }
 
 }
