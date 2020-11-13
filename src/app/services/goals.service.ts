@@ -18,13 +18,24 @@ export class GoalsService {
 
   addGoal(goalName: string, contribution: string, dueDate?: string, goalAmount?: string) {
     try {
+      let goalObject = new Goal();
+      goalObject.name = goalName;
+      goalObject.goalDate = Goal.convertFirebaseStringDateToDateType(dueDate);
+      goalObject.goalAmount = Number.parseFloat(goalAmount);
+      goalObject.contributionPercentage = Number.parseFloat(contribution);
+
       let newGoal = {};
       newGoal[ServiceData.firebaseTags.contributionPercentage] = contribution;
-      newGoal[ServiceData.firebaseTags.dueDate] = dueDate;
-      newGoal[ServiceData.firebaseTags.goalAmount] = goalAmount;
+      if (goalObject.isGoalDueDatePresent()) {
+        newGoal[ServiceData.firebaseTags.dueDate] = dueDate;
+      }
+      if (goalObject.isGoalAmountPresent()) {
+        newGoal[ServiceData.firebaseTags.goalAmount] = goalAmount;
+      }
 
       this.firebase.database.ref('/goals/' + goalName).set(newGoal);
       return true;
+
     } catch (exception) {
       console.log('failed: ' + exception);
       return false;
