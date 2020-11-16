@@ -23,7 +23,6 @@ export class AddGoalModalComponent implements OnInit {
     }
 
     // ToDo: change format of date input to dd-mm-yyyy - placeholder is not working
-    // ToDo: show message when add is successful
     this.goalsService.addGoal(goalName, contribution, dueDate, goalAmount);
   }
 
