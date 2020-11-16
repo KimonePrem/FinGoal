@@ -33,7 +33,7 @@
           <span class="input-group-text" id="addon-wrapping2">R</span>
         </div>
         <input #goalAmountInput type="number" class="form-control" id="goalAmountInput"
-               placeholder="Goal Amount">
+               placeholder="Goal Amount" onkeypress="return event.charCode >= 48" min="1">
       </div>
 
       <label for="dueDateInput"></label>

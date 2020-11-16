@@ -22,7 +22,7 @@
           <span class="input-group-text" id="addon-wrapping">R</span>
         </div>
         <input #savingsInput type="number" class="form-control" id="savingsInput" [value]="totalSavings"
-               required>
+               required onkeypress="return event.charCode >= 48" min="1">
       </div>
     </div>
 

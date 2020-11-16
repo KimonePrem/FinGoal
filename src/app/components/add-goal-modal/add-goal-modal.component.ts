@@ -27,6 +27,5 @@ export class AddGoalModalComponent implements OnInit {
     this.goalsService.addGoal(goalName, contribution, dueDate, goalAmount);
   }
 
-  // ToDo: filter on number fields - no negative numbers
   // ToDo: edit and delete goal options
 }
