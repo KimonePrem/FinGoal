@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {UserDetailsModalComponent} from '../user-details-modal/user-details-modal.component';
+import {UserDetailsModalComponent} from '../../screens/user-details-modal/user-details-modal.component';
 
 @Component({
   selector: 'app-navbar',

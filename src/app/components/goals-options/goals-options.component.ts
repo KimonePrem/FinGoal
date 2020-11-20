@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {AddGoalModalComponent} from '../add-goal-modal/add-goal-modal.component';
+import {AddGoalModalComponent} from '../../screens/add-goal-modal/add-goal-modal.component';
 
 @Component({
   selector: 'app-goals-options',

@@ -13,9 +13,10 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {GoalsListComponent} from './components/goals-list/goals-list.component';
-import {UserDetailsModalComponent} from './components/user-details-modal/user-details-modal.component';
+import {UserDetailsModalComponent} from './screens/user-details-modal/user-details-modal.component';
 import {CommonModule} from '@angular/common';
-import {AddGoalModalComponent} from './components/add-goal-modal/add-goal-modal.component';
+import {AddGoalModalComponent} from './screens/add-goal-modal/add-goal-modal.component';
+import { EditGoalModalComponent } from './screens/edit-goal-modal/edit-goal-modal.component';
 
 const icons = {
   Cash,
@@ -31,7 +32,8 @@ const icons = {
     GoalsOptionsComponent,
     GoalsListComponent,
     UserDetailsModalComponent,
-    AddGoalModalComponent
+    AddGoalModalComponent,
+    EditGoalModalComponent
   ],
   imports: [
     CommonModule,
