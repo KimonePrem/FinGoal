@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Goal} from '../../entity/Goal';
 import {GoalsService} from '../../services/goals.service';
 import {UserDetailsService} from '../../services/user-details.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {EditGoalModalComponent} from '../../screens/edit-goal-modal/edit-goal-modal.component';
 
 @Component({
   selector: 'app-goals-list',
@@ -13,7 +15,8 @@ export class GoalsListComponent implements OnInit {
   totalSavings: number;
 
   constructor(private goalsService: GoalsService,
-              private userDetailsService: UserDetailsService) {
+              private userDetailsService: UserDetailsService,
+              private modalService: NgbModal) {
     this.fetchGoalsList();
     this.fetchUserDetails();
   }
@@ -48,5 +51,14 @@ export class GoalsListComponent implements OnInit {
 
   private calculateAmountSaved(contribution: number, totalSavings: number): number {
     return contribution == 0 ? 0 : (contribution / 100) * totalSavings;
+  }
+
+  openEditGoalModal(goalToBeEdited: Goal) {
+    const editModalRef = this.modalService.open(EditGoalModalComponent, {scrollable: true});
+    editModalRef.componentInstance.goal = goalToBeEdited;
+  }
+
+  openConfirmDeleteGoalModal(goalToBeDeleted: Goal) {
+
   }
 }

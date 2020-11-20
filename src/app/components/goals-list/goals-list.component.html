@@ -27,7 +27,14 @@
                          [value]="this.calculateGoalProgress(goal.goalAmount, goal.contributionPercentage, totalSavings)"></ngb-progressbar>
       </p>
 
-
+      <div class="btn-group" role="group" aria-label="Goal Options">
+        <button type="button" class="btn btn-light" (click)="openEditGoalModal(goal)">
+          <bi name="pencil"></bi>
+        </button>
+        <button type="button" class="btn btn-light" (click)="openConfirmDeleteGoalModal(goal)">
+          <bi name="trash"></bi>
+        </button>
+      </div>
 
     </li>
   </ul>
