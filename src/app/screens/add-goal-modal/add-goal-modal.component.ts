@@ -24,6 +24,4 @@ export class AddGoalModalComponent implements OnInit {
 
     this.goalsService.addGoal(goalName, contribution, dueDate, goalAmount);
   }
-
-  // ToDo: edit and delete goal options
 }

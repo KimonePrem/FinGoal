@@ -46,4 +46,14 @@ describe('Goal', () => {
     expect(convertedDate).toEqual('09-07-2020');
   });
 
+  it('should convert date type to date input string', () => {
+    let date: Date = Goal.convertFirebaseStringDateToDateType('22-04-2020');
+    expect(date.getFullYear()).toEqual(2020);
+    expect(date.getMonth()).toEqual(4);
+    expect(date.getUTCDate()).toEqual(22);
+
+    const convertedDate: string = Goal.convertDateTypeToDateInputString(date);
+    expect(convertedDate).toEqual('2020-04-22');
+  });
+
 });

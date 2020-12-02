@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {GoalsService} from '../../services/goals.service';
+import {Goal} from '../../entity/Goal';
 
 @Component({
   selector: 'app-edit-goal-modal',
@@ -18,4 +19,19 @@ export class EditGoalModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getGoalDateInInputFormat(): string {
+    if (this.goal.isGoalDueDatePresent()) {
+      console.log(this.goal);
+      return Goal.convertDateTypeToDateInputString(this.goal.goalDate);
+    } else {
+      return '';
+    }
+  }
+
+  submitGoalUpdate(name: string, contribution: string, date: string, amount: string) {
+
+  }
+
+  // ToDo: fix format of input boxes: create spaces
+  // ToDo: backend functionality: take into account empty dates and amounts
 }

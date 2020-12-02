@@ -4,6 +4,9 @@ export class Goal {
   goalDate?: Date;
   goalAmount?: number;
 
+  /* Firebase Date Format: dd-mm-yyyy
+     Date Input Format: yyyy-mm-dd    */
+
   constructor() {
   }
 
@@ -51,6 +54,20 @@ export class Goal {
   static convertDateInputStringToFirebaseDateString(dateInput: string): string {
     const dateSplitArray = dateInput.split('-');
     return dateSplitArray[2] + '-' + dateSplitArray [1] + '-' + dateSplitArray[0];
+  }
+
+  static convertDateTypeToDateInputString(dateInput: Date): string {
+    let date = dateInput.getDate().toString();
+    if (date.length == 1) {
+      date = '0' + date;
+    }
+
+    let month = dateInput.getMonth().toString();
+    if (month.length == 1) {
+      month = '0' + month;
+    }
+
+    return dateInput.getFullYear() + '-' + month + '-' + date;
   }
 
 }
