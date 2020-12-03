@@ -16,6 +16,13 @@ export class GoalsService {
     });
   }
 
+  editGoal(name: string, contribution: string, dueDate: string, amount: string, oldGoalName: string) {
+    const oldGoalDeleted = this.deleteGoal(oldGoalName);
+    const newGoalAdded = this.addGoal(name, contribution, dueDate, amount);
+
+    return newGoalAdded && oldGoalDeleted;
+  }
+
   addGoal(goalName: string, contribution: string, dueDate?: string, goalAmount?: string) {
     try {
       let goalObject = new Goal();
@@ -33,8 +40,13 @@ export class GoalsService {
         newGoal[ServiceData.firebaseTags.goalAmount] = goalAmount;
       }
 
-      this.firebase.database.ref('/goals/' + goalName).set(newGoal);
-      return true;
+      this.firebase.database.ref('/goals/' + goalName).set(newGoal).then(function() {
+        return true;
+      })
+        .catch(function(error) {
+          console.log('Failed to add goal ' + goalName + ': ' + error);
+          return false;
+        });
 
     } catch (exception) {
       console.log('failed: ' + exception);
@@ -69,4 +81,13 @@ export class GoalsService {
     return goalsList;
   }
 
+  private deleteGoal(goalName: string) {
+    this.firebase.database.ref('/goals/' + goalName).remove().then(function() {
+      return true;
+    })
+      .catch(function(error) {
+        console.log('Failed to delete goal ' + goalName + ': ' + error);
+        return false;
+      });
+  }
 }

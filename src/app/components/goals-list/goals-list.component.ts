@@ -55,7 +55,7 @@ export class GoalsListComponent implements OnInit {
 
   openEditGoalModal(goalToBeEdited: Goal) {
     const editModalRef = this.modalService.open(EditGoalModalComponent, {scrollable: true});
-    editModalRef.componentInstance.goal = goalToBeEdited;
+    editModalRef.componentInstance.oldGoal = goalToBeEdited;
   }
 
   openConfirmDeleteGoalModal(goalToBeDeleted: Goal) {

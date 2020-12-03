@@ -25,9 +25,9 @@ describe('EditGoalModalComponent', () => {
     fixture = TestBed.createComponent(EditGoalModalComponent);
 
     component = fixture.componentInstance;
-    component.goal = new Goal();
-    component.goal.name = "Name";
-    component.goal.contributionPercentage = 20;
+    component.oldGoal = new Goal();
+    component.oldGoal.name = "Name";
+    component.oldGoal.contributionPercentage = 20;
 
     fixture.detectChanges();
   });
