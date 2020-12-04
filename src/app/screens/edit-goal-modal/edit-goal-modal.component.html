@@ -17,6 +17,7 @@
         <input #goalNameInput type="text" class="form-control" id="goalNameInput"
                value="{{oldGoal.name}}" required>
       </div>
+      <br>
 
       <label for="contributionInput">Contribution Percentage</label>
       <div class="input-group flex-nowrap">
@@ -27,6 +28,7 @@
           <span class="input-group-text" id="addon-wrapping1">%</span>
         </div>
       </div>
+      <br>
 
       <label for="goalAmountInput">Goal Amount</label>
       <div class="input-group flex-nowrap">
@@ -36,6 +38,7 @@
         <input #goalAmountInput type="number" class="form-control" id="goalAmountInput"
                [value]="oldGoal.goalAmount" onkeypress="return event.charCode >= 48" min="1">
       </div>
+      <br>
 
       <label for="dueDateInput">Due Date</label>
       <div class="input-group flex-nowrap">

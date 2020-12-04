@@ -37,7 +37,6 @@ export class EditGoalModalComponent implements OnInit {
     this.goalsService.editGoal(name, contribution, dueDate, amount, this.oldGoal.name);
   }
 
-  // ToDo: fix format of input boxes: create spaces
-  // ToDo: backend functionality: take into account empty dates and amounts
   // ToDo: check test coverage for all files and fill in the gaps
+  // ToDo: delete button confirmation and link to backend
 }
