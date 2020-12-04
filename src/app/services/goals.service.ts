@@ -49,7 +49,7 @@ export class GoalsService {
         });
 
     } catch (exception) {
-      console.log('failed: ' + exception);
+      console.log('Failed to Add Goal: ' + exception);
       return false;
     }
   }
@@ -81,7 +81,7 @@ export class GoalsService {
     return goalsList;
   }
 
-  private deleteGoal(goalName: string) {
+  deleteGoal(goalName: string) {
     this.firebase.database.ref('/goals/' + goalName).remove().then(function() {
       return true;
     })

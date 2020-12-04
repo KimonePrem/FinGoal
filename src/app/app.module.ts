@@ -17,6 +17,7 @@ import {UserDetailsModalComponent} from './screens/user-details-modal/user-detai
 import {CommonModule} from '@angular/common';
 import {AddGoalModalComponent} from './screens/add-goal-modal/add-goal-modal.component';
 import {EditGoalModalComponent} from './screens/edit-goal-modal/edit-goal-modal.component';
+import { ConfirmDeleteModalComponent } from './screens/confirm-delete-modal/confirm-delete-modal.component';
 
 const icons = {
   Cash,
@@ -35,7 +36,8 @@ const icons = {
     GoalsListComponent,
     UserDetailsModalComponent,
     AddGoalModalComponent,
-    EditGoalModalComponent
+    EditGoalModalComponent,
+    ConfirmDeleteModalComponent
   ],
   imports: [
     CommonModule,

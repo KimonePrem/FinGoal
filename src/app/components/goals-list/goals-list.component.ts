@@ -4,6 +4,7 @@ import {GoalsService} from '../../services/goals.service';
 import {UserDetailsService} from '../../services/user-details.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {EditGoalModalComponent} from '../../screens/edit-goal-modal/edit-goal-modal.component';
+import {ConfirmDeleteModalComponent} from '../../screens/confirm-delete-modal/confirm-delete-modal.component';
 
 @Component({
   selector: 'app-goals-list',
@@ -27,7 +28,6 @@ export class GoalsListComponent implements OnInit {
   private fetchGoalsList() {
     this.goalsService.getGoals().then((value) => {
       this.goalsList = GoalsService.snapshotToArray(value);
-      console.log(this.goalsList);
     });
   }
 
@@ -58,7 +58,10 @@ export class GoalsListComponent implements OnInit {
     editModalRef.componentInstance.oldGoal = goalToBeEdited;
   }
 
-  openConfirmDeleteGoalModal(goalToBeDeleted: Goal) {
-
+  openConfirmDeleteGoalModal(deleteGoalName: string) {
+    const editModalRef = this.modalService.open(ConfirmDeleteModalComponent);
+    editModalRef.componentInstance.goalName = deleteGoalName;
   }
+
+  // ToDo: perform calculations to check that contribution percentage does not exceed 100% - display warning if inconsistent
 }

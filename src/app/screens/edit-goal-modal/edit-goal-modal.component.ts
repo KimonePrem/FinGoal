@@ -17,7 +17,6 @@ export class EditGoalModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.oldGoal);
   }
 
   getGoalDateInInputFormat(): string {
@@ -38,5 +37,4 @@ export class EditGoalModalComponent implements OnInit {
   }
 
   // ToDo: check test coverage for all files and fill in the gaps
-  // ToDo: delete button confirmation and link to backend
 }
