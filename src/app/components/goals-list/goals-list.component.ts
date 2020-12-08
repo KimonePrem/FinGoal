@@ -14,6 +14,7 @@ import {ConfirmDeleteModalComponent} from '../../screens/confirm-delete-modal/co
 export class GoalsListComponent implements OnInit {
   goalsList: Goal[];
   totalSavings: number;
+  totalContributionPercentage: number;
 
   constructor(private goalsService: GoalsService,
               private userDetailsService: UserDetailsService,
@@ -28,6 +29,7 @@ export class GoalsListComponent implements OnInit {
   private fetchGoalsList() {
     this.goalsService.getGoals().then((value) => {
       this.goalsList = GoalsService.snapshotToArray(value);
+      this.setTotalContributionPercentage();
     });
   }
 
@@ -35,6 +37,15 @@ export class GoalsListComponent implements OnInit {
     this.userDetailsService.getTotalSavings().then((value) => {
       this.totalSavings = Number.parseFloat(value.val());
     });
+  }
+
+  private setTotalContributionPercentage() {
+    this.totalContributionPercentage = 0;
+    if (this.goalsList != null) {
+      for (let goal of this.goalsList) {
+        this.totalContributionPercentage += goal.contributionPercentage;
+      }
+    }
   }
 
   calculateGoalProgress(goalAmount: number, contribution: number, totalSavings: number): number {
@@ -63,5 +74,7 @@ export class GoalsListComponent implements OnInit {
     editModalRef.componentInstance.goalName = deleteGoalName;
   }
 
-  // ToDo: perform calculations to check that contribution percentage does not exceed 100% - display warning if inconsistent
+  // ToDo: perform calculations to check that contribution percentage does not exceed 100%
+  // display total percentage at the top
+
 }

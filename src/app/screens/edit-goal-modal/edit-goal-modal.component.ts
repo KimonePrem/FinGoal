@@ -35,6 +35,4 @@ export class EditGoalModalComponent implements OnInit {
 
     this.goalsService.editGoal(name, contribution, dueDate, amount, this.oldGoal.name);
   }
-
-  // ToDo: check test coverage for all files and fill in the gaps
 }

@@ -1,5 +1,14 @@
 <div class="goals-list">
 
+  <div class="d-flex w-100 justify-content-between">
+    <p>Total Contribution Percentage Used</p>
+    <strong>{{totalContributionPercentage}}%</strong>
+  </div>
+
+  <div *ngIf="totalContributionPercentage > 100" class="alert alert-danger" role="alert">
+    Total Contribution Percentage should not exceed 100%
+  </div>
+
   <div *ngIf="goalsList == null || goalsList.length == 0" class="list-group-item" style="padding-top: 20px">
     <h5 class="mb-1" style="color:gray">No Goals Yet. Click "Add Goal" to Start!</h5>
   </div>
