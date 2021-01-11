@@ -2,10 +2,10 @@
 
   <div class="d-flex w-100 justify-content-between">
     <p>Total Savings Allocated</p>
-    <strong>{{totalContributionPercentage}}%</strong>
+    <strong>{{totalSavingsAllocated}}%</strong>
   </div>
 
-  <div *ngIf="totalContributionPercentage > 100" class="alert alert-danger" role="alert">
+  <div *ngIf="totalSavingsAllocated > 100" class="alert alert-danger" role="alert">
     Total Contribution Percentage should not exceed 100%
   </div>
 

@@ -14,7 +14,7 @@ import {ConfirmDeleteModalComponent} from '../../screens/confirm-delete-modal/co
 export class GoalsListComponent implements OnInit {
   goalsList: Goal[];
   totalSavings: number;
-  totalContributionPercentage: number;
+  totalSavingsAllocated: number;
 
   constructor(private goalsService: GoalsService,
               private userDetailsService: UserDetailsService,
@@ -29,7 +29,7 @@ export class GoalsListComponent implements OnInit {
   private fetchGoalsList() {
     this.goalsService.getGoals().then((value) => {
       this.goalsList = GoalsService.snapshotToArray(value);
-      this.setTotalContributionPercentage();
+      this.setTotalSavingsAllocated();
     });
   }
 
@@ -39,11 +39,11 @@ export class GoalsListComponent implements OnInit {
     });
   }
 
-  private setTotalContributionPercentage() {
-    this.totalContributionPercentage = 0;
+  private setTotalSavingsAllocated() {
+    this.totalSavingsAllocated = 0;
     if (this.goalsList != null) {
       for (let goal of this.goalsList) {
-        this.totalContributionPercentage += goal.contributionPercentage;
+        this.totalSavingsAllocated += goal.contributionPercentage;
       }
     }
   }
@@ -73,4 +73,6 @@ export class GoalsListComponent implements OnInit {
     const editModalRef = this.modalService.open(ConfirmDeleteModalComponent);
     editModalRef.componentInstance.goalName = deleteGoalName;
   }
+
+  // ToDo: implement GitHub pipeline
 }
