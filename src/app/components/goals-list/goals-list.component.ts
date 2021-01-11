@@ -73,8 +73,4 @@ export class GoalsListComponent implements OnInit {
     const editModalRef = this.modalService.open(ConfirmDeleteModalComponent);
     editModalRef.componentInstance.goalName = deleteGoalName;
   }
-
-  // ToDo: perform calculations to check that contribution percentage does not exceed 100%
-  // display total percentage at the top
-
 }
