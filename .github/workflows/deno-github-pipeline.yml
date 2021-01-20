@@ -34,8 +34,14 @@ jobs:
         with:
           deno-version: ${{ matrix.deno }} # tests across multiple Deno versions
 
+      - name: Install dependencies
+          run: npm install
+
+      - name: Build
+          run: npm run build
+
       - name: Cache Dependencies
         run: deno cache deps.ts
 
       - name: Run Tests
-        run: ng test -A --unstable
+        run: deno test -A --unstable
